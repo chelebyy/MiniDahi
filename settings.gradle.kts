@@ -16,4 +16,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Mini_Dahi"
 include(":app")
- 

@@ -23,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".presentation.age3to5.Age3to5Activity"
+            android:theme="@style/Theme.MiniDahi" />
     </application>
 
 </manifest>

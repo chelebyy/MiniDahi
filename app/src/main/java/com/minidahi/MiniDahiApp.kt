@@ -8,10 +8,10 @@ import timber.log.Timber
 class MiniDahiApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        
+
         // Debug modda logging'i aktif et
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
     }
-} 
+}

@@ -1,4 +1,4 @@
-package com.example.mini_dahi.ui.theme
+package com.minidahi.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
