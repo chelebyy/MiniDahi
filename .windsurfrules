@@ -1,0 +1,258 @@
+# MiniDahi Kod Yazım Kuralları
+PRD.md dosyasına göre kod yazılacaktır.
+Android framework'ünde deneyime sahip, temiz programlama ve tasarım kalıplarına ilgi duyan kıdemli bir Kotlin programcısısınız
+
+## Genel Prensipler
+- Tüm kod İngilizce yazılmalıdır (değişken, fonksiyon, sınıf isimleri vb.)
+- Yorum satırları Türkçe yazılabilir
+- Her modül için ayrı README.md dosyası oluşturulmalıdır
+- Her değişiklik CHANGELOG.md'ye eklenmelidir
+- Commit mesajları İngilizce olmalıdır
+
+## Kotlin Kodlama Standartları
+
+### Temel Kurallar
+- Tüm kod Türkçe ve İngilizce karakter desteği içermelidir
+- Minimum Android API 21 (Android 5.0 Lollipop) desteklenmelidir
+- Uygulama boyutu 50MB'ın altında tutulmalıdır
+- COPPA ve GDPR uyumlu kod yazılmalıdır
+- Bir önceki yaptığın hatayı hatırla ve hata çözümünde aynı hatayı tekrar yapma
+- Mümkün olduğunca kodların yapısını değiştirme
+- Kodların yapısını değiştirirken kodun çalışma mantığını da değiştirme
+
+### Modüler Yapı
+- Yaş gruplarına göre (3-5, 6-8, 9-10) modüler kod yapısı kullanılmalıdır
+- Ebeveyn kontrol paneli için ayrı bir modül oluşturulmalıdır
+- Her modül kendi içinde bağımsız olmalıdır
+- Modüller arası iletişim interface'ler üzerinden yapılmalıdır
+
+### Kod Formatı
+- Değişken isimleri camelCase formatında olmalıdır
+- Sınıf isimleri PascalCase formatında olmalıdır
+- Sabit değişkenler UPPER_SNAKE_CASE formatında olmalıdır
+- Her fonksiyon tek bir işlem yapmalıdır
+- Fonksiyonlar maksimum 30 satır olmalıdır
+- Her yaş grubu için ayrı paket yapısı kullanılmalıdır
+- Oyun modülleri interface kullanılarak geliştirilmelidir
+- Dependency Injection (Hilt) kullanılmalıdır
+- Kod tekrarından kaçınılmalıdır (DRY prensibi)
+
+### Mimari Kurallar
+- Clean Architecture prensiplerine uyulmalıdır
+- MVVM (Model-View-ViewModel) mimarisi kullanılmalıdır
+- Repository pattern kullanılmalıdır
+- Use Case pattern kullanılmalıdır
+- Single Responsibility prensibine uyulmalıdır
+- Interface Segregation prensibine uyulmalıdır
+- Dependency Inversion prensibine uyulmalıdır
+
+### Dosya İsimlendirme
+- Activity dosyaları: *Activity.kt
+- Fragment dosyaları: *Fragment.kt
+- ViewModel dosyaları: *ViewModel.kt
+- Repository dosyaları: *Repository.kt
+- Use Case dosyaları: *UseCase.kt
+- Interface dosyaları: I*.kt
+- Test dosyaları: *Test.kt
+- Layout dosyaları: activity_*, fragment_*, item_*
+- Drawable dosyaları: ic_*, bg_*, selector_*
+
+## 1. Genel Kurallar
+- Tüm kod Türkçe ve İngilizce karakter desteği içermelidir
+- Minimum Android API 21 (Android 5.0 Lollipop) desteklenmelidir
+- Uygulama boyutu 50MB'ın altında tutulmalıdır
+- COPPA ve GDPR uyumlu kod yazılmalıdır
+- Bir önceki yaptığın hatayı hatırla ve hata çözümünde aynı hatayı tekrar yapma
+- Mümkün olduğunca kodların yapısını değiştirme
+- Kodların yapısını değiştirirken kodun çalışma mantığını da değiştirme
+- Yaş gruplarına göre (3-5, 6-8, 9-10) modüler kod yapısı kullanılmalıdır
+- Ebeveyn kontrol paneli için ayrı bir modül oluşturulmalıdır
+- Offline çalışma desteği zorunludur
+- Çoklu dil desteği (Türkçe/İngilizce) implementasyonu yapılmalıdır
+- Google Play Store gereksinimleri karşılanmalıdır
+- Auto-backup sistemi implementasyonu yapılmalıdır
+
+## 2. Kod Formatı
+- Değişken isimleri camelCase formatında olmalıdır
+- Sınıf isimleri PascalCase formatında olmalıdır
+- Sabit değişkenler UPPER_SNAKE_CASE formatında olmalıdır
+- Her fonksiyon tek bir işlem yapmalıdır
+- Fonksiyonlar maksimum 30 satır olmalıdır
+- Her yaş grubu için ayrı paket yapısı kullanılmalıdır
+- Oyun modülleri interface kullanılarak geliştirilmelidir
+- Dependency Injection kullanılmalıdır
+- Kod tekrarından kaçınılmalıdır (DRY prensibi)
+
+## 3. Dosya Organizasyonu
+```
+app/
+  ├── src/
+  │   ├── main/
+  │   │   ├── java/
+  │   │   │   ├── activities/     # Ana aktiviteler
+  │   │   │   ├── fragments/      # Fragment sınıfları
+  │   │   │   ├── models/         # Veri modelleri
+  │   │   │   ├── utils/          # Yardımcı sınıflar
+  │   │   │   ├── parent/         # Ebeveyn kontrol paneli
+  │   │   │   ├── age_groups/     # Yaş grupları modülleri
+  │   │   │   ├── common/         # Ortak kullanılan kodlar
+  │   │   │   ├── database/       # Yerel veritabanı işlemleri
+  │   │   │   ├── games/          # Oyun modülleri
+  │   │   │   ├── backup/         # Yedekleme işlemleri
+  │   │   │   └── store/          # Play Store entegrasyonları
+  │   │   └── res/
+  │   │       ├── drawable/       # Görseller
+  │   │       ├── layout/         # XML layoutlar
+  │   │       ├── values/         # Strings, colors, styles
+  │   │       ├── anim/           # Animasyon dosyaları
+  │   │       ├── sound/          # Ses dosyaları
+  │   │       └── raw/            # Ham dosyalar
+  │   └── test/                   # Test dosyaları
+  └── assets/                     # Oyun assetleri
+```
+
+## 4. Performans Kuralları
+- Tüm görseller optimize edilmiş olmalıdır
+- Hafıza yönetimi için WeakReference kullanılmalıdır
+- Ağır işlemler background thread'de yapılmalıdır
+- Asset'ler lazy loading ile yüklenmelidir
+- Her yaş grubu için ayrı asset paketleri kullanılmalıdır
+- Ses dosyaları sıkıştırılmış formatta olmalıdır
+- Frame rate düşüşleri monitör edilmelidir
+- Cache mekanizması implementasyonu yapılmalıdır
+- Soğuk başlatma süresi optimize edilmelidir
+- ANR (Application Not Responding) durumları engellenmelidir
+- Pil tüketimi optimize edilmelidir
+- App Bundle optimizasyonu yapılmalıdır
+
+## 5. Güvenlik Kuralları
+- Kişisel veri toplanmamalıdır
+- Dış bağlantılar kullanılmamalıdır
+- Reklam entegrasyonu yapılmamalıdır
+- Tüm dosya işlemleri sandbox içinde yapılmalıdır
+- Ebeveyn kontrolü için PIN/şifre koruması eklenmelidir
+- Oyun süresi sınırlaması için güvenli zamanlayıcı kullanılmalıdır
+- Çocuk profillerinin güvenli şekilde yönetimi sağlanmalıdır
+- Play Store güvenlik gereksinimleri karşılanmalıdır
+- Veri yedekleme güvenliği sağlanmalıdır
+- Yerel veritabanı şifreleme kullanılmalıdır
+
+## 6. UI/UX Kuralları
+- Material Design prensipleri uygulanmalıdır
+- Minimum dokunma alanı 48x48dp olmalıdır
+- Tüm UI elementleri accessibility standartlarına uygun olmalıdır
+- Animasyonlar 60fps'de çalışmalıdır
+- Yaş gruplarına özel renk paletleri kullanılmalıdır
+- Sesli yönlendirmeler için özel ses API'si geliştirilmelidir
+- Oyun başarı/başarısızlık durumları için özel animasyonlar eklenmelidir
+- Her yaş grubuna uygun font boyutları kullanılmalıdır
+- Play Store görsel gereksinimleri karşılanmalıdır
+- Store listing görselleri hazırlanmalıdır
+- Tanıtım videosu hazırlanmalıdır
+
+## 7. Test Kuralları
+- Her modül için unit test yazılmalıdır
+- UI testleri Espresso ile yapılmalıdır
+- Test coverage minimum %80 olmalıdır
+- Her PR öncesi testler çalıştırılmalıdır
+- Her yaş grubu için ayrı test senaryoları yazılmalıdır
+- Ebeveyn kontrol paneli için güvenlik testleri yapılmalıdır
+- Performans testleri düzenli olarak koşulmalıdır
+- Ses ve animasyon testleri otomatize edilmelidir
+- Play Store beta testi yapılmalıdır
+- Farklı cihazlarda test edilmelidir
+- Firebase Test Lab testleri yapılmalıdır
+
+## 8. Versiyon Kontrol
+- Git flow branching modeli kullanılacaktır
+- Commit mesajları açıklayıcı olmalıdır
+- PR'lar küçük ve odaklı olmalıdır
+- Merge öncesi code review zorunludur
+- Play Store sürüm yönetimi yapılmalıdır
+- In-app updates desteği eklenmelidir
+
+## 9. Dökümantasyon
+- Tüm public API'ler dokümante edilmelidir
+- Karmaşık algoritmalar açıklanmalıdır
+- README güncel tutulmalıdır
+- Değişiklikler CHANGELOG'a eklenmelidir
+- Her yaş grubu için ayrı API dökümantasyonu hazırlanmalıdır
+- Ebeveyn kontrol paneli kullanım kılavuzu oluşturulmalıdır
+- Oyun modüllerinin teknik dökümantasyonu yapılmalıdır
+- Play Store listing dökümanları hazırlanmalıdır
+- Gizlilik politikası hazırlanmalıdır
+- COPPA uyumluluk beyanı hazırlanmalıdır
+- Veri kullanım açıklaması hazırlanmalıdır
+
+## 10. Oyun Mekanikleri
+- Her yaş grubu için zorluk seviyeleri tanımlanmalıdır
+- Ödül sistemi için standart bir API geliştirilmelidir
+- İlerleme takibi için metrics sistemi kurulmalıdır
+- Mini oyunlar için template pattern kullanılmalıdır
+- Play Asset Delivery sistemi kullanılmalıdır
+- Yaş gruplarına göre asset paketleri hazırlanmalıdır
+
+## 11. Erişilebilirlik
+- Renk körlerine uygun tasarım yapılmalıdır
+- Büyük dokunma alanları için minimum boyutlar belirlenmeli
+- Sesli yönlendirmeler zorunlu tutulmalıdır
+- Özel gereksinimli çocuklar için ayarlamalar eklenmelidir
+
+## 12. Veritabanı Kuralları
+- Room Database kullanılmalıdır
+- Yerel veritabanı şifreleme yapılmalıdır
+- Veri yedekleme sistemi kurulmalıdır
+- Cihaz değişikliğinde veri taşıma desteği olmalıdır
+
+## 13. Play Store Hazırlık Kuralları
+- App Bundle formatında paketleme yapılmalıdır
+- Play Core Library entegre edilmelidir
+- ASO (App Store Optimization) yapılmalıdır
+- Aile programı gereksinimleri karşılanmalıdır
+- Metadata ve store listing optimize edilmelidir
+
+## 14. Kalite Kontrol Kuralları
+- Çökme oranı %0.1'in altında tutulmalıdır
+- Sayfa yüklenme süresi 2 saniyenin altında olmalıdır
+- Hafıza kullanımı 200MB'ın altında tutulmalıdır
+- Frame rate 60fps'de sabit tutulmalıdır
+
+## Yeni Eklemeler
+
+### Hata Yönetimi
+- Tüm hata mesajları strings.xml'de tanımlanmalıdır
+- Try-catch blokları yerine Result<T> kullanılmalıdır
+- Hata durumları sealed class ile modellenmelidir
+- Global exception handler kullanılmalıdır
+
+### Asenkron İşlemler
+- Coroutines kullanılmalıdır
+- ViewModelScope için structured concurrency
+- LifecycleScope için lifecycle-aware coroutines
+- Flow için cold stream operasyonları
+- StateFlow için UI state yönetimi
+
+### Resource Yönetimi
+- Tüm string'ler strings.xml'de olmalıdır
+- Tüm boyutlar dimens.xml'de olmalıdır
+- Tüm renkler colors.xml'de olmalıdır
+- Tüm stiller styles.xml'de olmalıdır
+- Tüm temalar themes.xml'de olmalıdır
+
+### Kod Dökümantasyonu
+- Tüm public API'ler KDoc ile dokümante edilmelidir
+- Karmaşık algoritmalarda açıklayıcı yorumlar olmalıdır
+- TODO ve FIXME etiketleri takip edilmelidir
+- Deprecated API'ler işaretlenmeli ve alternatifi belirtilmelidir
+
+### Güvenlik Kontrolleri
+- ProGuard kuralları optimize edilmelidir
+- Hassas veriler EncryptedSharedPreferences'da saklanmalıdır
+- SQL injection'a karşı Room Query'leri kontrol edilmelidir
+- Debug logları release versiyonunda kapatılmalıdır
+
+### CI/CD Kuralları
+- Her PR için otomatik test çalıştırılmalıdır
+- Lint kontrolleri zorunludur
+- Code coverage raporu oluşturulmalıdır
+- Release öncesi performans testleri yapılmalıdır 
