@@ -1,41 +1,41 @@
 package com.minidahi.age_groups.three_to_five
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.minidahi.R
+import com.minidahi.databinding.ItemCategoryBinding
 
 class CategoryAdapter(
-    private val categories: List<Category>,
     private val onCategoryClick: (Category) -> Unit
-) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+) : ListAdapter<Category, CategoryAdapter.CategoryViewHolder>(CategoryDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_category, parent, false)
-        return CategoryViewHolder(view)
+        val binding = ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CategoryViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.bind(categories[position])
+        holder.bind(getItem(position), onCategoryClick)
     }
 
-    override fun getItemCount() = categories.size
-
-    inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val cardView: CardView = itemView.findViewById(R.id.cardView)
-        private val iconView: ImageView = itemView.findViewById(R.id.categoryIcon)
-        private val titleView: TextView = itemView.findViewById(R.id.categoryTitle)
-
-        fun bind(category: Category) {
-            iconView.setImageResource(category.iconResId)
-            titleView.text = category.title
-            cardView.setOnClickListener { onCategoryClick(category) }
+    inner class CategoryViewHolder(private val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(category: Category, onCategoryClick: (Category) -> Unit) {
+            binding.categoryTitle.text = category.title
+            binding.categoryIcon.setImageResource(category.iconResId)
+            binding.cardView.setOnClickListener { onCategoryClick(category) }
         }
+    }
+}
+
+private class CategoryDiffCallback : DiffUtil.ItemCallback<Category>() {
+    override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
+        return oldItem == newItem
     }
 }
 
