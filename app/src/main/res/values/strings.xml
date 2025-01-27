@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mini Dahi</string>
+    
+    <!-- Ana Menü -->
+    <string name="age_group_3_5">3-5 Yaş</string>
+    <string name="age_group_6_8">6-8 Yaş</string>
+    <string name="age_group_9_10">9-10 Yaş</string>
+    <string name="parent_control">Ebeveyn Kontrol Paneli</string>
+    
+    <!-- Genel -->
+    <string name="next">İleri</string>
+    <string name="back">Geri</string>
+    <string name="cancel">İptal</string>
+    <string name="ok">Tamam</string>
+    <string name="success">Başarılı!</string>
+    <string name="error">Hata</string>
+    <string name="loading">Yükleniyor…</string>
+</resources>
