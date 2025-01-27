@@ -25,8 +25,8 @@
         </activity>
 
         <activity
-            android:name=".presentation.age3to5.Age3to5Activity"
+            android:name=".age_groups.three_to_five.ThreeToFiveActivity"
+            android:exported="false"
             android:theme="@style/Theme.MiniDahi" />
     </application>
-
 </manifest>

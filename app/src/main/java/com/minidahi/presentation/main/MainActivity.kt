@@ -1,11 +1,13 @@
 package com.minidahi.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AnimationUtils
 import androidx.activity.ComponentActivity
 import androidx.cardview.widget.CardView
 import com.google.android.material.button.MaterialButton
 import com.minidahi.R
+import com.minidahi.age_groups.three_to_five.ThreeToFiveActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,6 +38,9 @@ class MainActivity : ComponentActivity() {
                         }
                         android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL -> {
                             startAnimation(buttonRelease)
+                            when (id) {
+                                R.id.card_3_5 -> startActivity(Intent(this@MainActivity, ThreeToFiveActivity::class.java))
+                            }
                             performClick()
                             true
                         }
