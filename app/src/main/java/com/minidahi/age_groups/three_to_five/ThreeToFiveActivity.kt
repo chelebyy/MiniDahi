@@ -1,11 +1,13 @@
 package com.minidahi.age_groups.three_to_five
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.minidahi.R
+import com.minidahi.age_groups.three_to_five.colors.ColorsActivity
 import com.minidahi.databinding.ActivityThreeToFiveBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,7 +37,12 @@ class ThreeToFiveActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         categoryAdapter = CategoryAdapter { category ->
-            Toast.makeText(this, "${category.title} seçildi", Toast.LENGTH_SHORT).show()
+            when (category.id) {
+                1 -> startActivity(Intent(this, ColorsActivity::class.java))
+                2 -> Toast.makeText(this, "Şekiller yakında eklenecek", Toast.LENGTH_SHORT).show()
+                3 -> Toast.makeText(this, "Sayılar yakında eklenecek", Toast.LENGTH_SHORT).show()
+                4 -> Toast.makeText(this, "Hayvanlar yakında eklenecek", Toast.LENGTH_SHORT).show()
+            }
         }
         
         binding.categoryRecyclerView.apply {

@@ -28,5 +28,20 @@
             android:name=".age_groups.three_to_five.ThreeToFiveActivity"
             android:exported="false"
             android:theme="@style/Theme.MiniDahi" />
+
+        <activity
+            android:name=".age_groups.three_to_five.colors.ColorsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MiniDahi" />
+
+        <activity
+            android:name=".age_groups.three_to_five.colors.LearnColorsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MiniDahi" />
+
+        <activity
+            android:name=".age_groups.three_to_five.colors.match.MatchColorsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MiniDahi" />
     </application>
 </manifest>

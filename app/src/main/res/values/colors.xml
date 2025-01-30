@@ -46,6 +46,7 @@
     <color name="md_theme_light_inversePrimary">#D0BCFF</color>
     <color name="md_theme_light_surfaceTint">#6750A4</color>
     <color name="md_theme_light_scrim">#000000</color>
+    <color name="purple_50">#F3E5F5</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
