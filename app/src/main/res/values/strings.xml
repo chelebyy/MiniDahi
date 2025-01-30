@@ -16,4 +16,13 @@
     <string name="success">Başarılı!</string>
     <string name="error">Hata</string>
     <string name="loading">Yükleniyor…</string>
+    
+    <!-- Color Matching Game -->
+    <string name="match_colors">Renkleri Eşleştir</string>
+    <string name="score_format">Skor: %d</string>
+    <string name="congratulations">Tebrikler!</string>
+    <string name="game_completed_message">Oyunu %d puan ile tamamladınız!</string>
+    <string name="play_again">Tekrar Oyna</string>
+    <string name="close">Kapat</string>
+    <string name="find_matching_color">Bu rengi bul!</string>
 </resources>

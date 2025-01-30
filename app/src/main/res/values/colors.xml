@@ -11,6 +11,7 @@
     <color name="card_teal">#2CB1BF</color>
     <color name="card_orange">#BF5B2C</color>
     <color name="card_pink">#BF2C5B</color>
+    <color name="card_back">#BDBDBD</color>
     
     <!-- Efekt Renkleri -->
     <color name="ripple_light">#33FFFFFF</color>
